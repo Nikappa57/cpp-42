@@ -15,7 +15,10 @@ int	PhoneBook::readValidIndex(void)
 		std::cout << "index: " << std::flush;
 		std::cin >> index;
 		if (std::cin.good() && (index >= 0) && (index < _contacts_i))
-			break;
+		{
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			return index;
+		}
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Invalid index" << std::endl;

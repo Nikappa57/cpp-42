@@ -13,7 +13,6 @@ int	main(void)
 		{
 			case ADD:
 				phoneBook.add();
-				print_home();
 				break;
 			case SEARCH:
 				phoneBook.search();
