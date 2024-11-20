@@ -8,34 +8,32 @@
 # define CONTACTS_LEN 8
 # define COLUMN_MAX_LEN 10
 
-enum Command
-{
+enum Command {
 	ADD,
 	SEARCH,
 	EXIT,
 	INVALID
 };
 
-class PhoneBook
-{
+class PhoneBook {
 
 	public:
 
 		PhoneBook();
 		~PhoneBook();
 
-		void		search(void);
+		void		search(void) const;
 		void		add(void);
 
 	private:
 
 		static int	_contacts_i;
-
 		Contact 	_contacts[CONTACTS_LEN];
-		void		printContactsList(void) const;
-		Contact		getContact(int index) const;
-		void		addNewContact(Contact contact);
-		int			readValidIndex(void);
+
+		void		_printContactsList(void) const;
+		Contact		_getContact(int index) const;
+		void		_addNewContact(Contact contact);
+		int			_readValidIndex(void) const;
 };
 
 void	print_home(void);

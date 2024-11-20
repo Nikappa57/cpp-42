@@ -2,20 +2,21 @@
 
 /* public */
 
-PhoneBook::PhoneBook() {}
+PhoneBook::PhoneBook(void) {}
 
-PhoneBook::~PhoneBook() {}
+PhoneBook::~PhoneBook(void) {}
 
-int	PhoneBook::readValidIndex(void)
-{
-	int			index;
+int PhoneBook::_readValidIndex(void) const {
+	int	index;
 
-	while (true)
-	{
+	while (true) {
 		std::cout << "index: " << std::flush;
 		std::cin >> index;
-		if (std::cin.good() && (index >= 0) && (index < _contacts_i))
-		{
+
+		if (std::cin.eof()) {
+			std::cout << "EOF received. Exiting." << std::endl;
+			exit(EXIT_SUCCESS);
+		} if (std::cin.good() && (index >= 0) && (index < _contacts_i)) {
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			return index;
 		}
@@ -26,28 +27,25 @@ int	PhoneBook::readValidIndex(void)
 	return index;
 }
 
-void	PhoneBook::search(void)
-{
+void PhoneBook::search(void) const {
 	int	index;
 
-	if (_contacts_i == 0)
-	{
+	if (_contacts_i == 0) {
 		std::cout << "No contacts available" << std::endl;
 		return;
 	}
-	printContactsList();
-	index = readValidIndex();
-	Contact contact = getContact(index);
+	_printContactsList();
+	index = _readValidIndex();
+	Contact contact = _getContact(index);
 	contact.printDetails();
 }
 
-void		PhoneBook::add(void)
-{
+void PhoneBook::add(void) {
 	Contact	contact;
 
 	std::cout << "Add new contact" << std::endl;
 	contact.createFromInput();
-	addNewContact(contact);
+	_addNewContact(contact);
 	std::cout << "Contact added" << std::endl;
 }
 
@@ -55,23 +53,19 @@ void		PhoneBook::add(void)
 
 int	PhoneBook::_contacts_i = 0;
 
-Contact	PhoneBook::getContact(int index) const
-{
+Contact PhoneBook::_getContact(int index) const {
 	return _contacts[index];
 }
 
-void	PhoneBook::addNewContact(Contact contact)
-{
+void PhoneBook::_addNewContact(Contact contact) {
 	_contacts[_contacts_i++ % CONTACTS_LEN] = contact;
 }
 
-static	std::string	formatContactField(std::string field)
-{
+static std::string	formatContactField(std::string field) {
 	std::string	result;
 
 	result = field;
-	if (result.length() > COLUMN_MAX_LEN)										// trunc the field if it is too long
-	{
+	if (result.length() > COLUMN_MAX_LEN) {	// trunc the field if it is too long 
 		result = result.substr(0, COLUMN_MAX_LEN - 1);
 		result += ".";
 	}
@@ -80,8 +74,7 @@ static	std::string	formatContactField(std::string field)
 	return result;
 }
 
-static	std::string	formatContact(Contact contact, int index)
-{
+static	std::string	formatContact(Contact contact, int index) {
 	std::string	result;
 
 	result = std::to_string(index) + "|";
@@ -91,8 +84,7 @@ static	std::string	formatContact(Contact contact, int index)
 	return result;
 }
 
-void	PhoneBook::printContactsList(void) const
-{
+void	PhoneBook::_printContactsList(void) const {
 	std::string line;
 
 	for (int i = 0; i < _contacts_i; i++)
@@ -101,33 +93,25 @@ void	PhoneBook::printContactsList(void) const
 
 /* utils */
 
-void	print_home(void)
-{
+void	print_home(void) {
 	std::cout << std::endl << std::endl;
 	std::cout << "\t\tPhone Book" << std::endl << std::endl;
-	std::cout << "\t\tADD - save a new contac" << std::endl;
+	std::cout << "\t\tADD - save a new contact" << std::endl;
 	std::cout << "\t\tSEARCH - display contacts list" << std::endl;
 	std::cout << "\t\tEXIT - exit the program" << std::endl;
 }
 
-Command	readCommand(void)
-{
+Command	readCommand(void) {
 	std::string	command;
 
 	std::cout << ">> " << std::flush;
 	if (!getline(std::cin, command))
-		return INVALID;
-	if (!std::cin.good())
-	{
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		return INVALID;
-	}
-	if (command.compare("EXIT") == 0)
 		return EXIT;
-	if (command.compare("ADD") == 0)
+	if (command == "EXIT")
+		return EXIT;
+	if (command == "ADD")
 		return ADD;
-	if (command.compare("SEARCH") == 0)
+	if (command == "SEARCH")
 		return SEARCH;
 	return INVALID;
 }

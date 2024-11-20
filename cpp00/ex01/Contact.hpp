@@ -4,16 +4,14 @@
 # include <iostream>
 # include <string>
 
-class Contact
-{
+class Contact {
 
 	public:
-
 		Contact();
 		~Contact();
 
 		void		createFromInput(void);
-		void		printDetails(void);
+		void		printDetails(void) const;
 		std::string	getFirstName(void) const;
 		std::string	getLastName(void) const;
 		std::string	getNickname(void) const;
