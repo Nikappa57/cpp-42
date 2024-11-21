@@ -35,3 +35,5 @@ cpp01/ex00/zombie
 cpp01/ex01/zombie
 cpp01/ex02/hi
 .vscode/settings.json
+cpp01/ex04/tests/*
+cpp01/ex04/replace

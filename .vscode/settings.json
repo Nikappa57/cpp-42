@@ -55,6 +55,8 @@
 		"vector": "cpp",
 		"weapon.hpp": "c",
 		"humana.hpp": "c",
-		"humanb.hpp": "c"
+		"humanb.hpp": "c",
+		"fstream": "cpp",
+		"iomanip": "cpp"
 	}
 }
