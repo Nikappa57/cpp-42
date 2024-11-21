@@ -3,7 +3,6 @@ NAME 				=	zombie
 CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98
 RM					=	/bin/rm -f
-OBJDIR				=	objs/
 
 HEADER				=	Zombie.hpp
 SRCS				=	main.cpp zombieHorde.cpp Zombie.cpp
