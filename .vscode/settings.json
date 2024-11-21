@@ -52,6 +52,9 @@
 		"typeinfo": "cpp",
 		"unordered_map": "cpp",
 		"variant": "cpp",
-		"vector": "cpp"
+		"vector": "cpp",
+		"weapon.hpp": "c",
+		"humana.hpp": "c",
+		"humanb.hpp": "c"
 	}
 }
