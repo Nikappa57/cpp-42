@@ -17,11 +17,11 @@ int main(int argc, char **argv) {
 	if (argc != 4) handle_error("Usage: ./replace <filename> <s1> <s2>");
 
 	std::string filename_input = argv[1];
-	std::ifstream input(filename_input);
+	std::ifstream input(filename_input.c_str());
 	if (!input.is_open()) handle_perror("Failed to open file");
 	
 	std::string filename_output = filename_input + ".replace";
-	std::ofstream output(filename_output);
+	std::ofstream output(filename_output.c_str());
 	if (!output.is_open()) {
 		input.close();
 		handle_perror("Failed to open file");
@@ -29,15 +29,16 @@ int main(int argc, char **argv) {
 
 	size_t		index;
 	std::string	data;
+	std::string	s1 = argv[2];
 	if (std::getline(input, data, '\0')) {
 		while (true) {
-			index = data.find(argv[2]);
+			index = data.find(s1);
 			std::string temp = data.substr(0,
 					index != std::string::npos ? index : data.length());
 			output << temp;
 			if (index == std::string::npos) break;
 			output << argv[3];
-			data = data.substr(index + strlen(argv[2]));
+			data = data.substr(index + s1.length());
 		}
 	} else {
 		std::cout << "File is empty" << std::endl;
