@@ -9,7 +9,7 @@ int	main(void) {
 
 	if (std::cin.fail()) {
 		std::cerr << "Invalid input" << std::endl;
-		return EXIT_FAILURE;
+		return 1;
 	}
 
 	std::cout << "Creating a horde of " << n << " zombies" << std::endl;

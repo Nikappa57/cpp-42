@@ -3,6 +3,8 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
+# include <limits>
 # include "Contact.hpp"
 
 # define CONTACTS_LEN 8

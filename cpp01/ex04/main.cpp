@@ -3,24 +3,25 @@
 # include <string>
 # include <cerrno>
 # include <cstring>
+# include <cstdlib>
 
 # define handle_error(msg) \
 	do { std::cerr << msg << std::endl; \
-		exit(EXIT_FAILURE); } while (0)
+		exit(1); } while (0)
 
 # define handle_perror(msg) \
 	do { std::cerr << msg << ": " << strerror(errno) << std::endl; \
-		exit(EXIT_FAILURE); } while (0)
+		exit(1); } while (0)
 
 int main(int argc, char **argv) {
 	if (argc != 4) handle_error("Usage: ./replace <filename> <s1> <s2>");
 
-	std::ifstream input(argv[1]);
+	std::string filename_input = argv[1];
+	std::ifstream input(filename_input);
 	if (!input.is_open()) handle_perror("Failed to open file");
-
-	std::string filename = argv[1];
-	filename += ".replace";
-	std::ofstream output(filename);
+	
+	std::string filename_output = filename_input + ".replace";
+	std::ofstream output(filename_output);
 	if (!output.is_open()) {
 		input.close();
 		handle_perror("Failed to open file");

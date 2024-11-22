@@ -15,7 +15,7 @@ int PhoneBook::_readValidIndex(void) const {
 
 		if (std::cin.eof()) {
 			std::cout << "EOF received. Exiting." << std::endl;
-			exit(EXIT_SUCCESS);
+			exit(0);
 		} if (std::cin.good() && (index >= 0) && (index < _contacts_i)) {
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			return index;
@@ -74,21 +74,21 @@ static std::string	formatContactField(std::string field) {
 	return result;
 }
 
-static	std::string	formatContact(Contact contact, int index) {
+static void printContact(Contact contact, int index) {
 	std::string	result;
 
-	result = std::to_string(index) + "|";
-	result += formatContactField(contact.getFirstName()) + "|";
-	result += formatContactField(contact.getLastName()) + "|";
-	result += formatContactField(contact.getNickname());
-	return result;
+	std::cout << index << "|"
+		<< formatContactField(contact.getFirstName()) << "|"
+		<< formatContactField(contact.getFirstName()) << "|"
+		<< formatContactField(contact.getLastName()) << "|"
+		<< formatContactField(contact.getNickname()) << std::endl;
 }
 
 void	PhoneBook::_printContactsList(void) const {
 	std::string line;
 
 	for (int i = 0; i < _contacts_i; i++)
-		std::cout << formatContact(_contacts[i], i) << std::endl;
+		printContact(_contacts[i], i);
 }
 
 /* utils */
