@@ -9,8 +9,6 @@ int main( void ) {
 	claptrap.takeDamage(5);
 	claptrap.beRepaired(2);
 	claptrap.takeDamage(5);
-	claptrap.takeDamage(5);
-	claptrap.takeDamage(5);
 	claptrap.beRepaired(10);
 
 	return 0;
