@@ -30,6 +30,7 @@ class PhoneBook {
 	private:
 
 		static int	_contacts_i;
+		static int	_contacts_n;
 		Contact 	_contacts[CONTACTS_LEN];
 
 		void		_printContactsList(void) const;

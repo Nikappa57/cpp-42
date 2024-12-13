@@ -7,16 +7,17 @@ PhoneBook::PhoneBook(void) {}
 PhoneBook::~PhoneBook(void) {}
 
 int PhoneBook::_readValidIndex(void) const {
-	int	index;
+	int	index = -1;
 
 	while (true) {
 		std::cout << "index: " << std::flush;
 		std::cin >> index;
 
+		index--;
 		if (std::cin.eof()) {
 			std::cout << "EOF received. Exiting." << std::endl;
 			exit(0);
-		} if (std::cin.good() && (index >= 0) && (index < _contacts_i)) {
+		} if (std::cin.good() && (index >= 0) && (index < _contacts_n)) {
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			return index;
 		}
@@ -30,7 +31,7 @@ int PhoneBook::_readValidIndex(void) const {
 void PhoneBook::search(void) const {
 	int	index;
 
-	if (_contacts_i == 0) {
+	if (_contacts_n == 0) {
 		std::cout << "No contacts available" << std::endl;
 		return;
 	}
@@ -52,16 +53,20 @@ void PhoneBook::add(void) {
 /* private */
 
 int	PhoneBook::_contacts_i = 0;
+int	PhoneBook::_contacts_n = 0;
 
 Contact PhoneBook::_getContact(int index) const {
 	return _contacts[index];
 }
 
 void PhoneBook::_addNewContact(Contact contact) {
-	_contacts[_contacts_i++ % CONTACTS_LEN] = contact;
+	_contacts[_contacts_i] = contact;
+	_contacts_i = (_contacts_i + 1) % CONTACTS_LEN;
+	if (_contacts_n < CONTACTS_LEN)
+		_contacts_n++;
 }
 
-static std::string	formatContactField(std::string field) {
+static std::string formatContactField(std::string field) {
 	std::string	result;
 
 	result = field;
@@ -75,20 +80,16 @@ static std::string	formatContactField(std::string field) {
 }
 
 static void printContact(Contact contact, int index) {
-	std::string	result;
-
-	std::cout << index << "|"
-		<< formatContactField(contact.getFirstName()) << "|"
+	std::cout << "         " << index << "|"
 		<< formatContactField(contact.getFirstName()) << "|"
 		<< formatContactField(contact.getLastName()) << "|"
-		<< formatContactField(contact.getNickname()) << std::endl;
+		<< formatContactField(contact.getNickname()) << "|"<< std::endl;
 }
 
 void	PhoneBook::_printContactsList(void) const {
-	std::string line;
-
-	for (int i = 0; i < _contacts_i; i++)
-		printContact(_contacts[i], i);
+	std::cout << "     index|first name| last name|  nickname|" << std::endl;
+	for (int i = 0; i < _contacts_n; i++)
+		printContact(_contacts[i], i + 1);
 }
 
 /* utils */
