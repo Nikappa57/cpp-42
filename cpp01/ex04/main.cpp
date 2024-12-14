@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 	std::string filename_input = argv[1];
 	std::ifstream input(filename_input.c_str());
 	if (!input.is_open()) handle_perror("Failed to open file");
-	
+
 	std::string filename_output = filename_input + ".replace";
 	std::ofstream output(filename_output.c_str());
 	if (!output.is_open()) {
@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
 	} else {
 		std::cout << "File is empty" << std::endl;
 	}
-	
+
 	input.close();
 	output.close();
 
