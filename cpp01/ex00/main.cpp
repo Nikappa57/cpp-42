@@ -8,7 +8,7 @@ int	main(void) {
 	std::cout << "Finished creating new zombie (stack)" << std::endl;
 
 	std::cout << "Creating new zombie (heap)" << std::endl;
-	z = newZombie("Zombie1");
+	z = newZombie("Zombie2");
 	z->announce();
 	delete z;
 	std::cout << "Finished creating new zombie (heap)" << std::endl;
