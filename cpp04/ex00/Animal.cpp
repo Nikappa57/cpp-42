@@ -4,12 +4,13 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
-{
+Animal::Animal() : type("Generic") {
+	std::cout << "Animal constructor called" << std::endl;
 }
 
-Animal::Animal( const Animal & src )
-{
+Animal::Animal( const Animal & src ) {
+	std::cout << "Animal copy constructor called" << std::endl;
+	*this = src;
 }
 
 
@@ -17,8 +18,8 @@ Animal::Animal( const Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
-{
+Animal::~Animal() {
+	std::cout << "Animal destructor called" << std::endl;
 }
 
 
@@ -26,18 +27,14 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
-{
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+Animal &				Animal::operator=( Animal const & rhs ) {
+	if ( this != &rhs )
+		this->type = rhs.type;
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
-{
-	//o << "Value = " << i.getValue();
+std::ostream &			operator<<( std::ostream & o, Animal const & i ) {
+	o << i.getType();
 	return o;
 }
 
@@ -46,10 +43,16 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void Animal::makeSound(void) const {
+	std::cout << "Animal sound..." << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+const std::string &	Animal::getType(void) const {
+	return this->type;
+}
 
 /* ************************************************************************** */

@@ -13,13 +13,15 @@ class Animal
 		Animal( Animal const & src );
 		~Animal();
 
-		Animal &	operator=( Animal const & rhs );
+		Animal &			operator=( Animal const & rhs );
+
+		void				makeSound(void) const;
+		const std::string &	getType(void) const;
 
 	protected:
 		std::string	type;
-
 };
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
+std::ostream &				operator<<( std::ostream & o, Animal const & i );
 
 #endif /* ********************************************************** ANIMAL_H */
