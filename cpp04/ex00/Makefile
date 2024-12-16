@@ -1,11 +1,11 @@
-NAME 				=	trap
+NAME 				=	animal
 
 CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98
 RM					=	/bin/rm -f
 
-HEADER				=	ClapTrap.hpp FragTrap.hpp ScavTrap.hpp
-SRCS				=	main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp
+HEADER				=	Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+SRCS				=	Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 
 OBJS				=	$(SRCS:.cpp=.o)
 

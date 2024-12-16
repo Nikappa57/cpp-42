@@ -1,31 +1,31 @@
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() : Animal()
+WrongCat::WrongCat() : WrongAnimal()
 {
-	this->type = "Dog";
-	std::cout << "Dog constructor called" << std::endl;
+	this->type = "WrongCat";
+	std::cout << "WrongCat constructor called" << std::endl;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << "WrongCat destructor called" << std::endl;
 }
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Dog::makeSound(void) const
+void WrongCat::makeSound(void) const
 {
-	std::cout << "Bau bau!!" << std::endl;
+	std::cout << "Miau..." << std::endl;
 }
 
 

@@ -10,12 +10,6 @@ Cat::Cat() : Animal()
 	std::cout << "Cat constructor called" << std::endl;
 }
 
-Cat::Cat( const Cat & src )
-{
-	*this = src;
-	std::cout << "Cat copy constructor called" << std::endl;
-}
-
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */

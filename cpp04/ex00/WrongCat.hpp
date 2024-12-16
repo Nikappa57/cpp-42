@@ -1,17 +1,17 @@
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
 # include <string>
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
 
 	public:
 
-		Dog();
-		~Dog();
+		WrongCat();
+		~WrongCat();
 
 		void	makeSound(void) const;
 };
