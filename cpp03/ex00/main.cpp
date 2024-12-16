@@ -11,5 +11,15 @@ int main( void ) {
 	claptrap.takeDamage(5);
 	claptrap.beRepaired(10);
 
+	claptrap.attack("enemy");
+	claptrap.attack("enemy");
+	claptrap.attack("enemy");
+	claptrap.attack("enemy");
+	claptrap.attack("enemy");
+	claptrap.attack("enemy");
+	claptrap.attack("enemy");
+	claptrap.attack("enemy");
+	claptrap.attack("enemy");
+
 	return 0;
 }
