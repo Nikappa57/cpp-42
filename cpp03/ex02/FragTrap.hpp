@@ -20,7 +20,7 @@ class FragTrap : public ClapTrap
 		void			highFivesGuys(void);
 
 	private:
-
+		FragTrap();
 };
 
 std::ostream &			operator<<( std::ostream & o, FragTrap const & i );

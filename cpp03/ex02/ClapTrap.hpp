@@ -32,6 +32,9 @@ class ClapTrap {
 
 		bool			check_consume_energy(void);
 		bool			check_if_alive(void) const;
+	
+	private:
+		ClapTrap();
 
 };
 
