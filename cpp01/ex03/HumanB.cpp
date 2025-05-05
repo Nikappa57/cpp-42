@@ -4,13 +4,22 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-HumanB::HumanB(const std::string &name) : name(name), weapon(NULL) {}
+HumanB::HumanB(const std::string &name) : name(name), weapon(NULL) {
+	std::cout << "Constructor called for HumanB" << std::endl;
+	std::cout << this->name << " is created" << std::endl;
+	std::cout << "Weapon type: none" << std::endl;
+	std::cout << "-------------------------" << std::endl;
+}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-HumanB::~HumanB() {}
+HumanB::~HumanB() {
+	std::cout << "Destructor called for HumanB" << std::endl;
+	std::cout << this->name << " is destroyed" << std::endl;
+	std::cout << "-------------------------" << std::endl;
+}
 
 /*
 ** --------------------------------- METHODS ----------------------------------

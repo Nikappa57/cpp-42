@@ -4,10 +4,14 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Weapon::Weapon(const std::string& type) : type(type) {}
+Weapon::Weapon(const std::string& type) : type(type) {
+	std::cout << "Constructor called for Weapon" << std::endl;
+}
 
 
-Weapon::~Weapon() {}
+Weapon::~Weapon() {
+	std::cout << "Destructor called for Weapon" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

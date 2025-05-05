@@ -71,6 +71,18 @@
 		"random": "cpp",
 		"type_traits": "cpp",
 		"utility": "cpp",
-		"numbers": "cpp"
+		"numbers": "cpp",
+		"chrono": "cpp",
+		"condition_variable": "cpp",
+		"forward_list": "cpp",
+		"list": "cpp",
+		"map": "cpp",
+		"set": "cpp",
+		"unordered_set": "cpp",
+		"semaphore": "cpp",
+		"stop_token": "cpp",
+		"thread": "cpp",
+		"cinttypes": "cpp",
+		"typeindex": "cpp"
 	}
 }
