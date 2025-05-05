@@ -37,10 +37,10 @@ std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
 void ScavTrap::attack(const std::string& target) {
 	if (!this->check_if_alive())
 		std::cout << "ScavTrap " << this->name << " is dead!" << std::endl;
-	else if (this->check_consume_energy())
-		std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
-	else
+	else if (!this->check_consume_energy())
 		std::cout << "ScavTrap " << this->name << " is out of energy!" << std::endl;
+	else
+		std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate(void) {

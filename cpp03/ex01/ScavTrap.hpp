@@ -21,6 +21,8 @@ class ScavTrap : public ClapTrap
 
 	private:
 
+		ScavTrap();
+
 };
 
 std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );

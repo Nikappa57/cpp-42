@@ -56,29 +56,32 @@ std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
 void ClapTrap::attack(const std::string& target) {
 	if (!this->check_if_alive())
 		std::cout << "ClapTrap " << this->name << " is dead!" << std::endl;
-	else if (this->check_consume_energy())
-		std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
-	else
+	else if (!this->check_consume_energy())
 		std::cout << "ClapTrap " << this->name << " is out of energy!" << std::endl;
-
+	else
+		std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
 	if (!this->check_if_alive())
-		std::cout << "ClapTrap " << this->name << " is already dead!" << std::endl;
+		std::cout << this->name << " is already dead!" << std::endl;
 	else {
 		this->hit_points -= amount;
-		std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage!" << std::endl;
-	} if (!this->check_if_alive())
-		std::cout << "ClapTrap " << this->name << " is dead!" << std::endl;
+		std::cout << this->name << " takes " << amount << " points of damage!" << std::endl;
+	}
+	if (!this->check_if_alive())
+		std::cout << this->name << " is dead!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	bool is_alive = this->check_if_alive();
-	this->hit_points += amount;
-	std::cout << "ClapTrap " << this->name << " is repaired by " << amount << " points!" << std::endl;
-	if (!is_alive && this->check_if_alive())
-		std::cout << "ClapTrap " << this->name << " is alive again!" << std::endl;
+	if (!this->check_if_alive())
+		std::cout << this->name << " is dead!" << std::endl;
+	else if (!this->check_consume_energy())
+		std::cout << this->name << " is out of energy!" << std::endl;\
+	else {
+		this->hit_points += amount;
+		std::cout << this->name << " is repaired by " << amount << " points!" << std::endl;
+	}
 }
 
 /* private */
@@ -89,7 +92,6 @@ bool ClapTrap::check_consume_energy(void) {
 		return true;
 	}
 	return false;
-
 }
 
 bool ClapTrap::check_if_alive(void) const {

@@ -7,7 +7,7 @@ int	main(void) {
 	std::cout << "Number of zombies in the horde: ";
 	std::cin >> n;
 
-	if (std::cin.fail()) {
+	if (std::cin.fail() || (n > 50) || (n <= 0)) {
 		std::cerr << "Invalid input" << std::endl;
 		return 1;
 	}
