@@ -1,3 +1,4 @@
+# include <iostream>
 # include "Bureaucrat.hpp"
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
@@ -6,7 +7,7 @@
 
 
 inline int fail(void) {
-	std::cerr << "FAILED!" << std::endl;
+	std::cerr << "\033[31mFAILED!\033[0m" << std::endl; // Print in red
 	return 1;
 }
 
@@ -20,7 +21,6 @@ inline int fail(void) {
 
 int main(void) {
 	std::cout << "--- Bureaucrat ---" << std::endl;
-
 	/*--- Bureaucrat ---*/
 
 	// TEST 1: Basics
@@ -106,9 +106,9 @@ int main(void) {
 	std::cout << "--- FORM ---" << std::endl;
 
 	std::cout << "--- SHRUBBERY FORM ---" << std::endl;
-	// TEST 1: Basics
+	// TEST 4: Basics
 	{
-		std::cout << "1) Create a ShrubberyCreationForm and execute it" << std::endl;
+		std::cout << "4) Create a ShrubberyCreationForm and execute it" << std::endl;
 
 		try {
 			ShrubberyCreationForm form("home");
@@ -135,9 +135,9 @@ int main(void) {
 		}
 		std::cout << "SUCCESS!" << std::endl;
 	}
-	// TEST 2: Execution without signing
+	// TEST 5: Execution without signing
 	{
-		std::cout << "2) Attempt to execute an unsigned ShrubberyCreationForm" << std::endl;
+		std::cout << "5) Attempt to execute an unsigned ShrubberyCreationForm" << std::endl;
 
 		try {
 			ShrubberyCreationForm form("home");
@@ -150,9 +150,9 @@ int main(void) {
 		}
 		std::cout << "SUCCESS!" << std::endl;
 	}
-	// TEST 3: Signing with insufficient grade
+	// TEST 6: Signing with insufficient grade
 	{
-		std::cout << "3) Attempt to sign a ShrubberyCreationForm with insufficient grade" << std::endl;
+		std::cout << "6) Attempt to sign a ShrubberyCreationForm with insufficient grade" << std::endl;
 
 		try {
 			ShrubberyCreationForm form("home");
@@ -166,9 +166,9 @@ int main(void) {
 		}
 		std::cout << "SUCCESS!" << std::endl;
 	}
-	// TEST 4: Execution with insufficient grade
+	// TEST 7: Execution with insufficient grade
 	{
-		std::cout << "4) Attempt to execute a ShrubberyCreationForm with insufficient grade" << std::endl;
+		std::cout << "7) Attempt to execute a ShrubberyCreationForm with insufficient grade" << std::endl;
 
 		try {
 			ShrubberyCreationForm form("home");
@@ -186,9 +186,9 @@ int main(void) {
 
 
 	std::cout << "--- RobotomyRequestForm FORM ---" << std::endl;
-	// TEST 1: Basics
+	// TEST 8: Basics
 	{
-		std::cout << "1) Create a RobotomyRequestForm and execute it" << std::endl;
+		std::cout << "8) Create a RobotomyRequestForm and execute it" << std::endl;
 
 		try {
 			RobotomyRequestForm form("home");
@@ -215,9 +215,9 @@ int main(void) {
 		}
 		std::cout << "SUCCESS!" << std::endl;
 	}
-	// TEST 2: Execution without signing
+	// TEST 9: Execution without signing
 	{
-		std::cout << "2) Attempt to execute an unsigned RobotomyRequestForm" << std::endl;
+		std::cout << "9) Attempt to execute an unsigned RobotomyRequestForm" << std::endl;
 
 		try {
 			RobotomyRequestForm form("home");
@@ -229,9 +229,9 @@ int main(void) {
 			return fail();
 		}
 	}
-	// TEST 3: Signing with insufficient grade
+	// TEST 10: Signing with insufficient grade
 	{
-		std::cout << "3) Attempt to sign a RobotomyRequestForm with insufficient grade" << std::endl;
+		std::cout << "10) Attempt to sign a RobotomyRequestForm with insufficient grade" << std::endl;
 
 		try {
 			RobotomyRequestForm form("home");
@@ -245,9 +245,9 @@ int main(void) {
 		}
 		std::cout << "SUCCESS!" << std::endl;
 	}
-	// TEST 4: Execution with insufficient grade
+	// TEST 11: Execution with insufficient grade
 	{
-		std::cout << "4) Attempt to execute a RobotomyRequestForm with insufficient grade" << std::endl;
+		std::cout << "11) Attempt to execute a RobotomyRequestForm with insufficient grade" << std::endl;
 
 		try {
 			RobotomyRequestForm form("home");
@@ -264,9 +264,9 @@ int main(void) {
 	}
 
 	std::cout << "--- PresidentialPardonForm FORM ---" << std::endl;
-	// TEST 1: Basics
+	// TEST 12: Basics
 	{
-		std::cout << "1) Create a PresidentialPardonForm and execute it" << std::endl;
+		std::cout << "12) Create a PresidentialPardonForm and execute it" << std::endl;
 
 		try {
 			PresidentialPardonForm form("home");
@@ -293,9 +293,9 @@ int main(void) {
 		}
 		std::cout << "SUCCESS!" << std::endl;
 	}
-	// TEST 2: Execution without signing
+	// TEST 13: Execution without signing
 	{
-		std::cout << "2) Attempt to execute an unsigned PresidentialPardonForm" << std::endl;
+		std::cout << "13) Attempt to execute an unsigned PresidentialPardonForm" << std::endl;
 
 		try {
 			PresidentialPardonForm form("home");
@@ -308,9 +308,9 @@ int main(void) {
 		}
 		std::cout << "SUCCESS!" << std::endl;
 	}
-	// TEST 3: Signing with insufficient grade
+	// TEST 14: Signing with insufficient grade
 	{
-		std::cout << "3) Attempt to sign a PresidentialPardonForm with insufficient grade" << std::endl;
+		std::cout << "14) Attempt to sign a PresidentialPardonForm with insufficient grade" << std::endl;
 
 		try {
 			PresidentialPardonForm form("home");
@@ -324,9 +324,9 @@ int main(void) {
 		}
 		std::cout << "SUCCESS!" << std::endl;
 	}
-	// TEST 4: Execution with insufficient grade
+	// TEST 15: Execution with insufficient grade
 	{
-		std::cout << "4) Attempt to execute a PresidentialPardonForm with insufficient grade" << std::endl;
+		std::cout << "15) Attempt to execute a PresidentialPardonForm with insufficient grade" << std::endl;
 
 		try {
 			PresidentialPardonForm form("home");

@@ -2,7 +2,7 @@
 # include "Form.hpp"
 
 inline int fail(void) {
-	std::cerr << "FAILED!" << std::endl;
+	std::cerr << "\033[31mFAILED!\033[0m" << std::endl; // Print in red
 	return 1;
 }
 
@@ -203,7 +203,6 @@ int main(void) {
 		}
 		std::cout << "SUCCESS!" << std::endl;
 	}
-
 
 	return 0;
 }

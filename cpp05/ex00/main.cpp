@@ -1,7 +1,7 @@
 # include "Bureaucrat.hpp"
 
 inline int fail(void) {
-	std::cerr << "FAILED!" << std::endl;
+	std::cerr << "\033[31mFAILED!\033[0m" << std::endl; // Print in red
 	return 1;
 }
 
