@@ -1,10 +1,10 @@
-NAME 				=	whatever
+NAME 				=	iter
 
 CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98 -g
 RM					=	/bin/rm -f
 
-HEADER				=	whatever.hpp
+HEADER				=	iter.hpp
 SRCS				=	main.cpp
 
 OBJS				=	$(SRCS:.cpp=.o)
