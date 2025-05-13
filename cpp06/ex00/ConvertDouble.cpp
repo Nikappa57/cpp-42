@@ -85,10 +85,13 @@ void	ConvertDouble::printInt() const {
 void	ConvertDouble::printFloat() const {
 	if (_value == std::numeric_limits<double>::infinity())
 		std::cout << "+";
+
 	float floatValue = static_cast<float>(_value); // explicit conversion
-	const double tolerance = 1e-10;
-	std::cout << std::setprecision(std::numeric_limits<double>::digits10);
-	std::cout << floatValue;
+
+	std::cout << std::setprecision(std::numeric_limits<float>::digits10)
+		<< floatValue;
+
+	const float tolerance = std::numeric_limits<float>::epsilon();
 	if (std::fabs(floatValue - static_cast<int>(floatValue)) < tolerance)
 		std::cout << ".0";
 	std::cout << "f";
@@ -102,10 +105,11 @@ void	ConvertDouble::printDouble() const {
 	*/
 	if (_value == std::numeric_limits<double>::infinity())
 		std::cout << "+";
-	// set double precision
-	std::cout << std::setprecision(std::numeric_limits<double>::digits10);
-	std::cout << _value;
-	const double tolerance = 1e-10;
+
+	std::cout << std::setprecision(std::numeric_limits<double>::digits10)
+		<< _value;
+
+	const double tolerance = std::numeric_limits<double>::epsilon();
 	if (std::fabs(_value - static_cast<int>(_value)) < tolerance)
 		std::cout << ".0";
 }
