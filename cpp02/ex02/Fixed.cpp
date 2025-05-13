@@ -116,6 +116,7 @@ Fixed Fixed::operator++(int) {
 	return temp; // return the saved value
 }
 
+// pre increment
 Fixed &Fixed::operator++(void) {
 	this->value++;
 	return *this;
@@ -128,6 +129,7 @@ Fixed Fixed::operator--(int) {
 	return temp; // return the saved value
 }
 
+// pre decrement
 Fixed &Fixed::operator--(void) {
 	this->value--;
 	return *this;
