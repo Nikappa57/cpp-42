@@ -4,7 +4,7 @@
 # define N 10
 
 
-void print_val_int(int &elm) {
+void print_val_int(const int &elm) {
 	std::cout << elm << " ";
 }
 
@@ -23,10 +23,6 @@ int main( void ) {
 	iter(arr_int, N, print_val_int);
 	std::cout << std::endl;
 
-	// note: implicit funtion-to-pointer conversion
-	// print_val_int -> &print_val_int
-	// https://en.cppreference.com/w/cpp/language/implicit_conversion
-
 	// increment arr elems with iter
 	iter(arr_int, N, increment_int);
 
@@ -37,7 +33,7 @@ int main( void ) {
 
 	/*** test with instantiated function template **/
 
-	float arr_float[N] = {0.0f};
+	float arr_float[N];
 	for (int i = 0; i < N; i++)
 		arr_float[i] = static_cast<float>(i) + 0.5f;
 

@@ -3,9 +3,16 @@
 # define ITER_HPP
 
 template <typename T>
-void iter(T * arr, std::size_t len,
-		void fun(T &)) {	// syntactic sugar! it's equals to: 
-							// "void (fun)(T &)" , "void (*fun)(T &)"
+void iter(T * arr, const std::size_t len,
+		void fun(T &)) { // syntactic sugar! equals to "void (*fun)(T &)"
+	if (!arr) return ;
+	for (std::size_t i = 0; i < len; i++)
+		fun(arr[i]);
+}
+
+template <typename T>
+void iter(const T * arr, const std::size_t len,
+		void fun(const T &)) {
 	if (!arr) return ;
 	for (std::size_t i = 0; i < len; i++)
 		fun(arr[i]);
