@@ -2,6 +2,7 @@
 # define EASYFIND_HPP
 
 # include <algorithm>
+# include <stdexcept>
 
 // see std::find https://cplusplus.com/reference/algorithm/find/
 
@@ -10,8 +11,11 @@
 *	return true if found, false otherwise
 */
 template <typename T>
-bool easyfind(const T & int_cont, int val) {
-	return (std::find(int_cont.begin(), int_cont.end(), val) != int_cont.end());
+typename T::const_iterator easyfind(const T & int_cont, int val) {
+	typename T::const_iterator it = std::find(int_cont.begin(), int_cont.end(), val);
+	if (it == int_cont.end())
+		throw std::out_of_range("no elemen found");
+	return it;
 }
 
 #endif
