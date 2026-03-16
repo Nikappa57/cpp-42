@@ -42,21 +42,21 @@ void Span::addNumber(int n) {
 	_numbers.insert(n);
 }
 
-int Span::longestSpan() const {
+unsigned int Span::longestSpan() const {
 	if (_numbers.size() < 2)
 		throw Span::NotEnoughNumbersException();
 	// last - first
-	return (*_numbers.rbegin() - *_numbers.begin());
+	return static_cast<unsigned int>(*_numbers.rbegin() - *_numbers.begin());
 }
 
-int Span::shortestSpan() const {
+unsigned int Span::shortestSpan() const {
 	if (_numbers.size() < 2)
 		throw Span::NotEnoughNumbersException();
-	int min = std::numeric_limits<int>::max();
+	unsigned int min = std::numeric_limits<unsigned int>::max();
 	std::multiset<int>::const_iterator itr1 = _numbers.begin();
 	std::multiset<int>::const_iterator itr2 = ++_numbers.begin();
 	for (; itr2 != _numbers.end(); ++itr1, ++itr2) {
-		if ((min = std::min(min, *itr2 - *itr1)) == 0) break;
+		if ((min = std::min(min, static_cast<unsigned int>(*itr2 - *itr1))) == 0) break;
 	}
 	return min;
 }

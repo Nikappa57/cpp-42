@@ -1,8 +1,9 @@
 # include <iostream>
-# include "Span.hpp"
 # include <vector>
 # include <cstdlib>
 # include <ctime>
+
+# include "Span.hpp"
 
 void test1() {
 	std::cout << "Subject test" << std::endl;
@@ -60,6 +61,7 @@ int main(void) {
 	srand(time(NULL));
 	test1();
 	test2();
+	test3(10, 10000000);
 	test3(1000, 10000000);
 	test3(10000, 10000000);
 	test3(100000, 10000000);

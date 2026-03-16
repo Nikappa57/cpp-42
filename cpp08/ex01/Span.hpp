@@ -4,6 +4,9 @@
 # include <iostream>
 # include <string>
 # include <set>
+# include <iterator>
+# include <algorithm>
+# include <limits>
 
 class Span
 {
@@ -18,14 +21,17 @@ class Span
 
 		void addNumber(int n); // O(log(n))
 		
-		template<typename It>
-		void addNumber(It begin, It end) {
-			for (; begin != end; ++begin)
-				addNumber(*begin);
+		template<typename Iter>
+		void addNumber(Iter begin, Iter end) {
+			// std::distance = number of elements
+			if (static_cast<std::size_t>(std::distance(begin, end)) > _limit - _numbers.size()) {
+				throw Span::FullException();
+			}
+			_numbers.insert(begin, end);
 		}
 
-		int shortestSpan() const; // O(n)
-		int longestSpan() const; // O(1)
+		unsigned int shortestSpan() const; // O(n)
+		unsigned int longestSpan() const; // O(1)
 
 		class FullException : public std::exception {
 			public:
