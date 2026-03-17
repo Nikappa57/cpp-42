@@ -9,7 +9,7 @@ class RPN;
 
 typedef void (RPN::*transFn)(char c);
 
-# define DEBUG 1
+# define DEBUG 0
 
 class RPN
 {
@@ -26,14 +26,11 @@ class RPN
 		enum State { I, N, S, OP };
 
 	private:
-		// for parsing
-		// a state machine, just for fun :)
+		// state machine for parsing
 		State _state;
 		static const State _acceptingState;
 
 		static const transFn _tf[];
-
-		// for calculating
 		std::stack<int>	_stack;
 
 		void _init_state(char c);

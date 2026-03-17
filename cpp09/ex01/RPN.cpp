@@ -28,7 +28,6 @@ RPN &				RPN::operator=( RPN const & rhs )
 {
 	if ( this != &rhs )
 	{
-		// Copy the contents of rhs to this object
 		this->_state = rhs._state;
 		this->_stack = rhs._stack;
 	}
@@ -80,7 +79,7 @@ void RPN::_init_state(char c) {
 		_state = N;
 		_stack.push(c - '0');
 	} else {
-		throw std::runtime_error("Error: not stating with a number.");
+		throw std::runtime_error("Error: not starting with a number.");
 	}
 }
 
