@@ -4,8 +4,8 @@ CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98 -g
 RM					=	/bin/rm -f
 
-HEADER				=	RPN.hpp
-SRCS				=	RPN.cpp main.cpp
+HEADER				=	PmergeMe.hpp
+SRCS				=	PmergeMe.cpp main.cpp
 
 OBJS				=	$(SRCS:.cpp=.o)
 
