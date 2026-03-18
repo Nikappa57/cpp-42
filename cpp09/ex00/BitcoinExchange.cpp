@@ -72,7 +72,7 @@ void BitcoinExchange::compare(const std::string & csvFilename) {
 	std::string line;
 	getline(infile, line);
 	if (line != "date | value")
-		throw std::runtime_error("Error: bad header in file.");
+		std::cerr << "Error: bad header in file." << std::endl;
 	while (std::getline(infile, line)) {
 		std::string date;
 		float value;
