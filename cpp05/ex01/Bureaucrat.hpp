@@ -23,6 +23,7 @@ class Bureaucrat {
 		void incrementGrade();
 		void decrementGrade();
 		void signForm(Form & form) const;
+
 		// To avoid magic numbers, the upper and lower grade limits are defined as static constants
 
 		static const unsigned int	upperGradeLimit;
